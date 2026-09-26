@@ -4,122 +4,433 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dias Software</title>
+  <title>Dias Software | Tecnologia que simplifica</title>
 
   <meta name="description"
-        content="Dias Software — desenvolvimento de aplicativos e soluções digitais.">
+        content="Dias Software — aplicativos e soluções digitais desenvolvidos para tornar tarefas mais simples, rápidas e produtivas.">
 
   <style>
+    :root {
+      --primary: #14213d;
+      --primary-light: #1d3158;
+      --accent: #356df3;
+      --accent-light: #edf3ff;
+      --background: #f6f8fc;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --border: #e5eaf2;
+      --success-bg: #edf7f1;
+      --success-text: #287a4b;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f6f8fc;
-      color: #172033;
+      background: var(--background);
+      color: var(--text);
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
     header {
-      background: #14213d;
+      background: var(--primary);
       color: white;
-      padding: 22px 8%;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     nav {
-      max-width: 1100px;
+      max-width: 1180px;
       margin: auto;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
     }
 
-    .logo {
-      font-size: 22px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #4d7fff, #7aa2ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
       font-weight: bold;
+      box-shadow: 0 6px 18px rgba(53,109,243,0.28);
     }
 
-    .hero {
-      background: #14213d;
-      color: white;
-      padding: 90px 8% 110px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 46px;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: auto;
-      font-size: 19px;
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
       color: #dbe3f1;
     }
 
-    main {
-      max-width: 1050px;
-      margin: -45px auto 60px;
-      padding: 0 20px;
+    .nav-links a:hover {
+      color: white;
     }
 
-    .card {
-      background: white;
-      padding: 38px;
+    /* HERO */
+
+    .hero {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(70,117,255,0.18), transparent 28%),
+        var(--primary);
+      color: white;
+      padding: 95px 24px 125px;
+    }
+
+    .hero-content {
+      max-width: 920px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 7px 14px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #dce6ff;
+      font-size: 13px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -2px;
       margin-bottom: 24px;
-      border-radius: 16px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
     }
 
-    h2 {
-      margin-bottom: 12px;
-      color: #14213d;
+    .hero h1 span {
+      color: #7fa4ff;
     }
 
-    .app-name {
-      font-size: 24px;
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #d7dfed;
+      font-size: 19px;
+    }
+
+    /* MAIN */
+
+    main {
+      max-width: 1120px;
+      margin: -55px auto 0;
+      padding: 0 24px 80px;
+    }
+
+    .featured-app {
+      background: var(--surface);
+      border-radius: 22px;
+      padding: 44px;
+      box-shadow: 0 14px 40px rgba(22,34,57,0.09);
+      border: 1px solid rgba(0,0,0,0.025);
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
       font-weight: bold;
-      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      margin-bottom: 10px;
+    }
+
+    .featured-app h2 {
+      font-size: 35px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    .featured-app p {
+      color: var(--muted);
+      max-width: 620px;
     }
 
     .status {
       display: inline-block;
-      margin-top: 16px;
-      padding: 7px 13px;
-      background: #edf2ff;
+      margin-top: 22px;
+      padding: 8px 14px;
+      background: var(--success-bg);
+      color: var(--success-text);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .app-visual {
+      min-height: 230px;
       border-radius: 20px;
+      background:
+        radial-gradient(circle at 70% 25%, rgba(255,255,255,0.15), transparent 30%),
+        linear-gradient(145deg, #17284b, #315fc5);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .app-symbol {
+      width: 76px;
+      height: 76px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      margin-bottom: 17px;
+    }
+
+    .app-visual strong {
+      font-size: 22px;
+    }
+
+    .app-visual span {
+      margin-top: 4px;
+      color: #dbe6ff;
       font-size: 14px;
-      color: #244a9b;
     }
 
-    a {
-      color: #2457c5;
-      text-decoration: none;
+    /* FEATURES */
+
+    .section {
+      padding-top: 80px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 34px;
     }
+
+    .section-heading h2 {
+      color: var(--primary);
+      font-size: 31px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 30px;
+      border-radius: 17px;
+      border: 1px solid var(--border);
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      margin-top: 80px;
+      padding: 48px;
+      border-radius: 22px;
+      background: var(--primary);
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 30px;
+      margin-bottom: 13px;
+    }
+
+    .about p {
+      color: #d7dfed;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 14px;
+    }
+
+    .about-point {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 14px 17px;
+      border-radius: 12px;
+      color: #e7ecf6;
+      font-size: 14px;
+    }
+
+    /* PRIVACY */
+
+    .privacy {
+      margin-top: 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .privacy h3 {
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .privacy p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      white-space: nowrap;
+      padding: 11px 18px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #285edc;
+    }
+
+    /* FOOTER */
 
     footer {
-      text-align: center;
-      padding: 35px 20px;
-      color: #667085;
-      font-size: 14px;
+      border-top: 1px solid var(--border);
+      background: white;
+      color: var(--muted);
     }
 
-    @media (max-width: 600px) {
+    .footer-content {
+      max-width: 1120px;
+      margin: auto;
+      padding: 30px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+    }
+
+    .footer-brand {
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
       .hero {
-        padding: 65px 22px 85px;
+        padding-top: 70px;
+        padding-bottom: 100px;
       }
 
       .hero h1 {
-        font-size: 36px;
+        letter-spacing: -1px;
       }
 
-      .card {
-        padding: 26px;
+      .featured-app,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-app {
+        padding: 30px;
+      }
+
+      .about {
+        padding: 32px;
+      }
+
+      .privacy {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
@@ -129,61 +440,146 @@
 
 <header>
   <nav>
-    <div class="logo">Dias Software</div>
+    <a class="brand" href="#">
+      <div class="brand-icon">D</div>
+      <span>Dias Software</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#aplicativos">Aplicativos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#privacidade">Privacidade</a>
+    </div>
   </nav>
 </header>
 
 <section class="hero">
-  <h1>Dias Software</h1>
-  <p>
-    Criamos aplicativos e soluções digitais com foco em
-    produtividade, simplicidade e tecnologia.
-  </p>
+  <div class="hero-content">
+    <div class="hero-tag">Software pensado para o dia a dia</div>
+
+    <h1>
+      Tecnologia para tornar o trabalho
+      <span>mais simples.</span>
+    </h1>
+
+    <p>
+      A Dias Software desenvolve aplicativos e soluções digitais
+      com foco em produtividade, simplicidade, segurança e uma
+      experiência fácil de usar.
+    </p>
+  </div>
 </section>
 
 <main>
 
-  <section class="card">
-    <h2>Aplicativos</h2>
+  <section class="featured-app" id="aplicativos">
+    <div>
+      <div class="eyebrow">Nosso aplicativo</div>
 
-    <div class="app-name">PrimeScan</div>
+      <h2>PrimeScan</h2>
 
-    <p>
-      Aplicativo para digitalização, organização e gerenciamento
-      de documentos e arquivos PDF.
-    </p>
+      <p>
+        Digitalize documentos, organize páginas, trabalhe com arquivos PDF,
+        extraia textos e tenha ferramentas úteis para transformar documentos
+        físicos em arquivos digitais de forma simples e prática.
+      </p>
 
-    <span class="status">Em breve</span>
+      <span class="status">Em preparação para lançamento</span>
+    </div>
+
+    <div class="app-visual">
+      <div class="app-symbol">▣</div>
+      <strong>PrimeScan</strong>
+      <span>Documentos e PDF</span>
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Privacidade</h2>
+  <section class="section">
+    <div class="section-heading">
+      <div class="eyebrow">Nossa proposta</div>
+      <h2>Soluções feitas para resolver.</h2>
+      <p>
+        Desenvolvemos tecnologia priorizando aquilo que realmente importa
+        para quem utiliza nossos aplicativos.
+      </p>
+    </div>
 
-    <p>
-      A Dias Software valoriza a privacidade e a segurança
-      dos usuários de seus aplicativos.
-    </p>
+    <div class="grid">
 
-    <p style="margin-top: 12px;">
-      <a href="privacidade.html">
-        Política de Privacidade do PrimeScan
-      </a>
-    </p>
+      <article class="info-card">
+        <div class="info-icon">✓</div>
+        <h3>Simplicidade</h3>
+        <p>
+          Interfaces claras e recursos organizados para reduzir etapas
+          desnecessárias e facilitar o uso.
+        </p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-icon">⚙</div>
+        <h3>Produtividade</h3>
+        <p>
+          Ferramentas desenvolvidas para agilizar tarefas e tornar
+          processos digitais mais eficientes.
+        </p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-icon">◇</div>
+        <h3>Privacidade</h3>
+        <p>
+          Privacidade e segurança consideradas desde o desenvolvimento
+          dos nossos produtos.
+        </p>
+      </article>
+
+    </div>
   </section>
 
-  <section class="card">
-    <h2>Sobre a Dias Software</h2>
+  <section class="about" id="sobre">
 
-    <p>
-      A Dias Software desenvolve soluções digitais voltadas
-      para facilitar tarefas do dia a dia por meio da tecnologia.
-    </p>
+    <div>
+      <h2>Sobre a Dias Software</h2>
+
+      <p>
+        A Dias Software desenvolve aplicativos e soluções digitais
+        voltados para necessidades reais, combinando tecnologia,
+        praticidade e evolução contínua.
+      </p>
+    </div>
+
+    <div class="about-points">
+      <div class="about-point">Produtos com foco em utilidade real</div>
+      <div class="about-point">Desenvolvimento e melhoria contínua</div>
+      <div class="about-point">Experiência simples e acessível</div>
+    </div>
+
+  </section>
+
+  <section class="privacy" id="privacidade">
+
+    <div>
+      <h3>Privacidade e transparência</h3>
+
+      <p>
+        Consulte as informações sobre privacidade e tratamento de dados
+        relacionadas ao PrimeScan.
+      </p>
+    </div>
+
+    <a class="button" href="privacidade.html">
+      Política de Privacidade
+    </a>
+
   </section>
 
 </main>
 
 <footer>
-  © 2026 Dias Software. Todos os direitos reservados.
+  <div class="footer-content">
+    <div class="footer-brand">Dias Software</div>
+    <div>© 2026 Dias Software. Todos os direitos reservados.</div>
+  </div>
 </footer>
 
 </body>
